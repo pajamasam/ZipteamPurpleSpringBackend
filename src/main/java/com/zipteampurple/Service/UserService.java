@@ -24,8 +24,14 @@ public class UserService {
 
     public User save(User user) {
         User createdUser = null;
-        if(this.find(user.getUsername()) == null) {
-            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+
+        boolean isEmailUnique    = userRepository.existsByEmail(user.getEmail());
+        boolean isUsernameUnique = this.userRepository.existsByUsername(user.getUsername());
+
+        boolean isUnique = !isEmailUnique && !isUsernameUnique;
+
+        if(isUnique) {
+            //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             createdUser = userRepository.save(user);
             this.channelService.addUserToDefault(createdUser);
         }

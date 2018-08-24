@@ -26,41 +26,14 @@ public class UserAccountController {
         HttpStatus httpStatus = null;
         User createdUser = this.userService.save(newUser);
         httpStatus = createdUser != null ? HttpStatus.CREATED : HttpStatus.CONFLICT;
-        return new ResponseEntity<>(createdUser, new HttpHeaders(), httpStatus);
+        return new ResponseEntity<>(new HttpHeaders(), httpStatus);
     }
-
-//    @RequestMapping(value="/login", method=RequestMethod.POST)
-//    public ResponseEntity<?> loginUser(@RequestBody User user) {
-//        HttpStatus httpStatus = HttpStatus.UNPROCESSABLE_ENTITY;
-//        HttpHeaders httpHeaders = new HttpHeaders();
-//        User foundUser = userService.find(user.getUserName());
-//        if (foundUser != null) {
-//            if (foundUser.getPassword().equals(user.getPassword())) httpStatus = HttpStatus.ACCEPTED;
-//        }
-//        return new ResponseEntity<>(foundUser, httpHeaders, httpStatus);
-//    }
 
     @RequestMapping(value="/getUsers", method=RequestMethod.GET)
     public ResponseEntity<?> getUsers() {
         HttpStatus httpStatus = HttpStatus.OK;
         HttpHeaders httpHeaders = new HttpHeaders();
         List<User> users = userService.getAllUsers();
-
-        Set<String> set = new HashSet<>();
-
-        set.toArray(new String[set.size()]);
-
-//        ObjectMapper objectMapper = new ObjectMapper();
-//
-//
-//        String usersString = null;
-//
-//        try {
-//            usersString = objectMapper.writeValueAsString(users);
-//        } catch (JsonProcessingException e) {
-//            e.printStackTrace();
-//        }
-
         return new ResponseEntity<>(users, httpHeaders, httpStatus);
     }
  }
