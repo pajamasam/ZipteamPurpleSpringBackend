@@ -31,7 +31,7 @@ public class UserService {
         boolean isUnique = !isEmailUnique && !isUsernameUnique;
 
         if(isUnique) {
-            //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             createdUser = userRepository.save(user);
             this.channelService.addUserToDefault(createdUser);
         }

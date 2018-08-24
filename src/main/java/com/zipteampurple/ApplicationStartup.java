@@ -4,6 +4,7 @@ import com.zipteampurple.Entity.Channel;
 import com.zipteampurple.Entity.User;
 import com.zipteampurple.Service.ChannelService;
 import com.zipteampurple.Service.UserService;
+import com.zipteampurple.auth.AuthGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -17,6 +18,9 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    AuthGroupRepository authGroupRepository;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
