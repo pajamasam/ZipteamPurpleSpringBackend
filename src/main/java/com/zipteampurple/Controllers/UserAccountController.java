@@ -4,6 +4,7 @@ import com.zipteampurple.Entity.User;
 import com.zipteampurple.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,7 @@ public class UserAccountController {
         return new ResponseEntity<>(new HttpHeaders(), httpStatus);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value="/getUsers", method=RequestMethod.GET)
     public ResponseEntity<?> getUsers() {
         HttpStatus httpStatus = HttpStatus.OK;

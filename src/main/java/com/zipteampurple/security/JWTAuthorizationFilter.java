@@ -1,6 +1,7 @@
 //package com.zipteampurple.security;
 //
 //import io.jsonwebtoken.Jwts;
+//import org.springframework.context.annotation.Profile;
 //import org.springframework.security.authentication.AuthenticationManager;
 //import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 //import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,6 +13,7 @@
 //import javax.servlet.http.HttpServletResponse;
 //import java.io.IOException;
 //import java.util.ArrayList;
+//
 //
 //public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 //

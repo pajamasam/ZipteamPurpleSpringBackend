@@ -1,7 +1,7 @@
 //package com.zipteampurple.security;
-//
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Profile;
 //import org.springframework.http.HttpMethod;
 //import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 //import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,8 +13,8 @@
 //import org.springframework.web.cors.CorsConfiguration;
 //import org.springframework.web.cors.CorsConfigurationSource;
 //import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-//
 //import static com.zipteampurple.security.SecurityConstants.SIGN_UP_URL;
+//
 //
 //@EnableWebSecurity
 //public class WebSecurity extends WebSecurityConfigurerAdapter {

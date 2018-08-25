@@ -3,6 +3,7 @@
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import io.jsonwebtoken.Jwts;
 //import io.jsonwebtoken.SignatureAlgorithm;
+//import org.springframework.context.annotation.Profile;
 //import org.springframework.security.authentication.AuthenticationManager;
 //import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 //import org.springframework.security.core.Authentication;
@@ -19,6 +20,7 @@
 //import java.util.Date;
 //
 //import static com.zipteampurple.security.SecurityConstants.*;
+//
 //
 //public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 //	private AuthenticationManager authenticationManager;

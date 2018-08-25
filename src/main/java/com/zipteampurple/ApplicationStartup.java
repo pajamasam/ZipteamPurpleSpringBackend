@@ -4,6 +4,7 @@ import com.zipteampurple.Entity.Channel;
 import com.zipteampurple.Entity.User;
 import com.zipteampurple.Service.ChannelService;
 import com.zipteampurple.Service.UserService;
+import com.zipteampurple.auth.AuthGroup;
 import com.zipteampurple.auth.AuthGroupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -25,6 +26,7 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
 
+
         Channel channel = new Channel();
         channel.setName("General");
         channel.setPurpose("Channel that is created when the server first starts");
@@ -37,6 +39,29 @@ public class ApplicationStartup implements ApplicationListener<ApplicationReadyE
         user.setUsername("nmaidanos");
         user.setEmail("nmaidanos@gmail.com");
         this.userService.save(user);
+
+        AuthGroup authGroug1 = new AuthGroup();
+        authGroug1.setUsername("nmaidanos");
+        authGroug1.setAuthGroup("ADMIN");
+        this.authGroupRepository.save(authGroug1);
+
+        AuthGroup authGroug2 = new AuthGroup();
+        authGroug2.setUsername("nmaidanos");
+        authGroug2.setAuthGroup("USER");
+        this.authGroupRepository.save(authGroug2);
+
+        User user2 = new User();
+        user2.setFirstName("Jae");
+        user2.setLastName("Park");
+        user2.setPassword("password");
+        user2.setUsername("jmoney");
+        user2.setEmail("jaepark@gmail.com");
+        this.userService.save(user2);
+
+        AuthGroup authGroug3 = new AuthGroup();
+        authGroug3.setUsername("jmoney");
+        authGroug3.setAuthGroup("USER");
+        this.authGroupRepository.save(authGroug3);
 
 //        User user2 = new User();
 //        user2.setFirstName("Jae");
