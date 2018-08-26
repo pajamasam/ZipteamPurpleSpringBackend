@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class MessageService {
@@ -19,10 +20,6 @@ public class MessageService {
 
     @Autowired
     ChannelService channelService;
-
-    @Autowired
-    ChannelRepository channelRepository;
-
 
     public Message save(Message message) {
         if(channelService.ifExists(message.getChannelId())){
@@ -43,10 +40,9 @@ public class MessageService {
         } else {
             return null;
         }
-
     }
 
-    public Iterable<Message> getAllMessages() {
+    public List<Message> getAllMessages() {
         return messageRepository.findAll();
     }
 

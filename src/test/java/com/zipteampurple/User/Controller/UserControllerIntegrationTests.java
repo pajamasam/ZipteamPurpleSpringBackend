@@ -1,4 +1,4 @@
-package com.zipteampurple.controller;
+package com.zipteampurple.User.Controller;
 
 
 import com.zipteampurple.Controllers.UserAccountController;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -62,5 +63,29 @@ public class UserControllerIntegrationTests {
         //Assert that that
         assertEquals(responseEntity.getStatusCode(),HttpStatus.CONFLICT);
         assertNull(responseEntity.getBody());
+    }
+
+    @Test
+    public void getAllUsers(){
+
+//        //Creating a User
+//        User user = new User();
+//        user.setFirstName("Madonna");
+//        user.setLastName("Dons");
+//        user.setPassword("password");
+//        user.setUsername("mdons");
+//        user.setEmail("mdons@gmail.com");
+//
+//        //Adds the user to the Database
+//        userAccountController.registerUser(user);
+
+        //Then when you try and add the second person to the database you will get a Conflict
+        ResponseEntity responseEntity = userAccountController.getUsers();
+
+        //Assert that that
+        assertEquals(responseEntity.getStatusCode(),HttpStatus.OK);
+//        assertNull(responseEntity.getBody());
+//        this.userAccountController.getUsers();
+
     }
 }

@@ -1,4 +1,4 @@
-package com.zipteampurple.repository;
+package com.zipteampurple.User.Repository;
 
 import com.zipteampurple.Entity.User;
 import com.zipteampurple.Repository.UserRepository;
